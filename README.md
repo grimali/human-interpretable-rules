@@ -31,3 +31,20 @@ We assess the quality of rule-based explanations using standard interpretability
 
 
 
+
+## Usage Example
+
+```python
+from rule_metrics import evaluate_rules_with_label_matching
+
+metrics, per_rule_df, per_rule_overlap_df = evaluate_rules_with_label_matching(
+    dataset_csv_path="path_of_the_event_log.csv",
+    decision_table_csv_path="path_of_the_decision_table.csv",
+    stability_runs=30,
+    stability_flip_prob=0.02,
+    stability_seed=0
+)
+
+print(metrics)
+print(per_rule_df.head())
+print(per_rule_overlap_df.head())
